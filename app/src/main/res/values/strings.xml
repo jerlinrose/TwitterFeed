@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TwitterFeed</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY"></string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET"></string>
+    <string name="settings_intent_scheme">package</string>
+    <string name="snackbar_text">Enable geolocation to get area specific feed</string>
+    <string name="snackbar_button_text">PERMISSION</string>
+</resources>
