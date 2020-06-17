@@ -34,6 +34,7 @@ public class FeedActivity extends BaseActivity implements FeedMvpView {
         mPresenter.displayRunTimePermissions();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onResume() {
         super.onResume();

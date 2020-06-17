@@ -1,6 +1,7 @@
 package com.example.twitterfeed.di.modules;
 
 import android.app.Activity;
+import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 

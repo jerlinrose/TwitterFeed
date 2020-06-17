@@ -2,6 +2,7 @@ package com.example.twitterfeed.ui.feed;
 
 import android.Manifest;
 import android.content.Intent;
+import android.location.Location;
 import android.net.Uri;
 import android.provider.Settings;
 
@@ -18,9 +19,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import im.delight.android.location.SimpleLocation;
+
 public class FeedPresenter<V extends FeedMvpView> extends BasePresenter<V> implements FeedMvpPresenter<V> {
 
     public boolean isPermissionDenied = false;
+
+    SimpleLocation location;
 
     @Inject
     public FeedPresenter() {
@@ -59,7 +64,7 @@ public class FeedPresenter<V extends FeedMvpView> extends BasePresenter<V> imple
 
     @Override
     public boolean isPermissionGranted() {
-       return  permissionUtility.getPermission(getMvpView().getContext(), getMvpView().getPermissionString()) == permissionUtility.getGrantedPermission();
+        return permissionUtility.getPermission(getMvpView().getContext(), getMvpView().getPermissionString()) == permissionUtility.getGrantedPermission();
     }
 
     @Override
@@ -70,9 +75,18 @@ public class FeedPresenter<V extends FeedMvpView> extends BasePresenter<V> imple
         return intent;
     }
 
+    public Double getCurrentLat(SimpleLocation location) {
+        return location.getLatitude();
+    }
+
+    public Double getCurrentLong(SimpleLocation location) {
+        return location.getLongitude();
+    }
+
     @Override
     public void onAttach(V mvpView) {
         super.onAttach(mvpView);
+        location = new SimpleLocation(getMvpView().getContext());
     }
 
     @Override
